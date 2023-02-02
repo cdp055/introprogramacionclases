@@ -33,15 +33,23 @@ public class SumaNumeros {
         divisionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double n1 = Double. parseDouble(textField1. getText());
-                double n2 = Double. parseDouble(textField2. getText());
-                if(n1>n2){
-                    Double div = n1 / n2;
-                    lbl_result. setText(String. valueOf(div));
-                }else{
-                    String mensaje= "Invalido";
-                    lbl_result. setText(String. valueOf(mensaje));
+                double n1 =0;
+                double n2 =0;
+                double div =0;
+                try{
+                    n1 = Double.parseDouble(textField1.getText());
+                    n2 = Double.parseDouble(textField2.getText());
+
+                }catch (Exception error){
+                    String mensaje = "Invalido";
+                    lbl_result.setText(String.valueOf(mensaje));
+
+
                 }
+                double divi= Integer.parseInt(textField1.getText()) / Integer.parseInt(textField2.getText());
+                lbl_result.setText(String.valueOf(divi));
+
+
             }
         });
         multiplicacionButton.addActionListener(new ActionListener() {
@@ -58,5 +66,6 @@ public class SumaNumeros {
         inicio.setContentPane(new SumaNumeros().panelPrincipal);
         inicio.pack();
         inicio.setVisible(true);
+
     }
 }
